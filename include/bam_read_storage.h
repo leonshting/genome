@@ -13,7 +13,7 @@ class bam_read_storage
         bam_read_storage(int );
         void pop_unneeded();
         int push_new(BamTools::BamAlignment *al);
-        void get_vectors(std::vector<char> *letters, std::vector<char> *qualities);
+        bool get_vectors(std::vector<char> *letters, std::vector<char> *qualities);
         char get_new_ref(reference_handler *handler);
         char get_cur_ref();
         int get_pos();

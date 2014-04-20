@@ -8,8 +8,8 @@ bam_read_storage::bam_read_storage(int size)
 
 char bam_read_storage::get_new_ref(reference_handler *handler)
 {
-    from_ref = handler->get_next();
     abs_pos = handler->get_pos();
+    from_ref = handler->get_next();
     return from_ref;
 }
 
@@ -42,21 +42,30 @@ void bam_read_storage::pop_unneeded()
     }
 }
 
-void bam_read_storage::get_vectors(std::vector<char> *letters, std::vector<char> *qualities)
+bool bam_read_storage::get_vectors(std::vector<char> *letters, std::vector<char> *qualities)
 {
-    std::deque<bam_read>::iterator it = storage.begin(), end = storage.end();
-    for(it=it; it !=end; it++)
+    if(storage.empty())
     {
-        char l,q;
-        if((*it).get_next(&l,&q))
-        {
-            (*letters).push_back(l);
-            (*qualities).push_back(q);
-        }
+        scanned = int(100.0 * abs_pos / ref_size);
+        return false;
     }
-    (*letters).push_back(0);
-    (*qualities).push_back(0);
-    scanned = int(100.0 * abs_pos / ref_size);
+    else
+    {
+        std::deque<bam_read>::iterator it = storage.begin(), end = storage.end();
+        for(it=it; it !=end; it++)
+        {
+            char l,q;
+            if((*it).get_next(&l,&q))
+            {
+                (*letters).push_back(l);
+                (*qualities).push_back(q);
+            }
+        }
+        (*letters).push_back(0);
+        (*qualities).push_back(0);
+        scanned = int(100.0 * abs_pos / ref_size);
+    }
+    return true;
 }
 
 bool bam_read_storage::is_empty()

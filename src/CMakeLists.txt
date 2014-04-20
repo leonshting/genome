@@ -6,12 +6,13 @@ set( BIN first )
 project( ${BIN} )
 
 # Устанавливаем корневой путь к папке с исходниками программы.
-set( SOURCE_ROOT ../src )
+set( SOURCE_ROOT ../src/ )
 
 aux_source_directory( ${SOURCE_ROOT} SOURCES )
 
 # Указываем пути, где искать заголовочники, дополнительно к стандартным путям.
-include_directories( "../include" )
+include_directories( "/usr/local/include/bamtools/" )
+include_directories( "../include/" )
 
 # Устанавливаем путь, куда будет скопирован исполняемый файл при выполнении
 # команды 'make install'.
@@ -19,7 +20,7 @@ set( INSTALL_PATH /usr/local/bin/ )
 
 # Указываем пути, где искать сторонние динамически библиотеки. Эти пути будут
 # просмотрены в дополнение к умолчальными системным путям.
-link_directories( "../lib" )
+link_directories( "/usr/local/lib/bamtools/" )
 
 # Перечисляем необходимые сторонние динамические библиотеки и сохраняем
 # их список в переменной REQUIRED_LIBRARIES.

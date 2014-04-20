@@ -5,13 +5,13 @@ pileup_w::pileup_w(const char * filename)
     f = std::fopen(filename, "w");
 }
 
-void pileup_w::push(int pos, char ref, std::vector<char> &l, std::vector<char> &q)
+void pileup_w::push(std::string id, int pos, char ref, std::vector<char> &l, std::vector<char> &q)
 {
     char *le = reinterpret_cast<char*>(l.data());
     char *qu = reinterpret_cast<char*>(q.data());
     if(le != NULL && qu != NULL)
     {
-        std::fprintf(f, "%d %c %s %s\n", pos, ref, le, qu);
+        std::fprintf(f, "%s:%d %c %s %s\n",id.c_str(), pos+1, ref, le, qu);
         //std::printf("%d %c %s %s\n", pos, ref, le, qu);
 
     }

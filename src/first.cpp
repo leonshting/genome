@@ -45,8 +45,8 @@ int main(int argc, char * argv[])
         }
         while(die_flag && storage.push_new(&BAl));
         fuckup = true;
-        storage.get_vectors(&let, &qua);
-        puWriter.push(storage.get_pos(),storage.get_cur_ref(),let,qua);
+        if(storage.get_vectors(&let, &qua))
+            puWriter.push(ref.get_id(), storage.get_pos(),storage.get_cur_ref(),let,qua);
         cout << storage.get_progress() << "%";
         printf("\n\033[F\033[J");
         storage.pop_unneeded();

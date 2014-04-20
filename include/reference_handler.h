@@ -16,12 +16,17 @@ class reference_handler {
         char get_spec(int num);
         int get_pos();
         int get_size();
+        string get_id();
+        void upd_cur_contig();
         reference_handler(const char *);
     protected:
         int pos, vector_size;
-        string ref_file, header;
+        string ref_file;
         FILE *ref_stream;
         vector<char> cont;
+        vector<int> id_pos;
+        vector<string> id;
+        int cur_contig;
 };
 
 #endif // REFERENCE_HANDLER_H_INCLUDED
