@@ -10,6 +10,7 @@
 #include <pileup_w.h>
 #include <bam_read_storage.h>
 
+
 #define fifod "/tmp/genome_fifo"
 
 using namespace std;
@@ -49,7 +50,7 @@ int main(int argc, char * argv[])
         fuckup = true;
         if(storage.get_vectors(&let, &qua))
         {
-            int pos = storage.get_pos(), leng = let.size();
+            int pos = storage.get_pos();
             char ref2 = storage.get_cur_ref();
             puWriter.push(ref.get_id(),pos,ref2,let,qua);
         }
