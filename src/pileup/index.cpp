@@ -11,7 +11,7 @@ index::index(std::string name, int size)
     fbuf = std::fopen(tmp.data(),"w");
 }
 
-index::write()
+void index::info_write()
 {
     std::fprintf(fbuf, format.data(), ref_length, firstname.data());
 }

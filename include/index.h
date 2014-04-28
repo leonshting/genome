@@ -7,7 +7,7 @@ class index
 {
     public:
         index(std::string, int);
-        void write();
+        void info_write();
         ~index();
     protected:
         int ref_length;
