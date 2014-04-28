@@ -14,7 +14,26 @@ char  Aminok[21][4]=
 {"Phe", "Leu","Ile","Val","Ser","Pro", "Thr", "Ala", "Tyr", "His","Gin","Asn", "Lys", "Asp","Glu","Cys","Trp","Arg","Gly", "Beg", "End"};
 
 public:
-    void extraction()
+    void extraction(string codens, string codems )  //function for coding codons
+    {
+        char *codench[3], *codemch[3];
+        strcpy( codench, codens.c_str() );
+        strcpy( codemch, codems.c_str() );
+        for (int i=0; i<=2; i++)
+        {
+            if (codench[i]=="A") coden[i]=1;
+            if (codench[i]=="T") coden[i]=2;
+            if (codench[i]=="G") coden[i]=3;
+            if (codench[i]=="C") coden[i]=1;
+            if (codemch[i]=="A") codem[i]=1;
+            if (codemch[i]=="T") codem[i]=2;
+            if (codemch[i]=="G") codem[i]=3;
+            if (codemch[i]=="C") codem[i]=1;
+
+        }
+        return coden, codem;
+
+    }
  void compare (int coden,int codem, int pos){
     int i=0;
     int j=0;
