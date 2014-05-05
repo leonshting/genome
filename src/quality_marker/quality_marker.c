@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <sys/stat.h>
 #include <unistd.h>
-#include <math.h>
 #include <string.h>
 
 #define MAX_BUF 1000
@@ -31,19 +30,19 @@ int main(int argc, char *argv[])
                 switch(let[i])
                 {
                 case 'A':
-                    q[0]+= (double)((double)qua[i] - 33.0)/(-10.0);
+                    q[0]-= (double)((double)qua[i] - 33.0);
                     membered[0] = 1;
                     break;
                 case 'T':
-                    q[1]+= (double)((double)qua[i] - 33.0)/(-10.0);
+                    q[1]-= (double)((double)qua[i] - 33.0);
                     membered[1] = 1;
                     break;
                 case 'G':
-                    q[2]+= (double)((double)qua[i] - 33.0)/(-10.0);
+                    q[2]-= (double)((double)qua[i] - 33.0);
                     membered[2] = 1;
                     break;
                 case 'C':
-                    q[3]+= (double)((double)qua[i] - 33.0)/(-10.0);
+                    q[3]-= (double)((double)qua[i] - 33.0);
                     membered[3] = 1;
                     break;
                 }
@@ -65,9 +64,18 @@ int main(int argc, char *argv[])
                 }
                 if(letters[min_num] != ref)
                 {
-                    fprintf(mut, "%d: %c\n", pos, letters[min_num]);
-                    fprintf(atgc, "%d: %c: %.1lf, %c: %.1lf, %c: %.1lf, %c: %.1lf\n",
-                            pos,letters[0], q[0],letters[1], q[1],letters[2], q[2],letters[3], q[3]);
+                    int k=0;
+                    fprintf(atgc, "%d|| ", pos);
+                    for(k=0;k<4;k++)
+                    {
+                        if(q[k]!=0.0)
+                        {
+                            fprintf(atgc, "%c: %4.1lf| ",
+                                letters[k], q[k]);
+                        }
+                    }
+                    fprintf(atgc, "\n");
+                    fprintf(mut, "%d, %c\n", pos, letters[min_num]);
                 }
             }
         }
