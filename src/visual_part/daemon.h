@@ -19,9 +19,10 @@ public:
     bool is_pileup_ended;
     int index_size;
     QGraphicsScene *dna;
-    QGraphicsScene *prot;
+    QGraphicsScene *pr;
     bool is_loaded;
-
+    int imsorry_width;
+    void set_imsorry(int n){imsorry_width = n;}
 private:
 public slots:
     void pileup_st();

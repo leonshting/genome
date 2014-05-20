@@ -17,6 +17,7 @@ public:
     QList<QStringList> parsed_one, parsed_two;
     void configureItem(QGraphicsScene *s, QString file1);
     void configureProt(QGraphicsScene *s, QString file2, int length);
+    void configure_histogram(QGraphicsScene *s, int perpix);
 signals:
 
 public slots:

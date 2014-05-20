@@ -10,7 +10,7 @@ Daemon::Daemon()
     to_qua = new QProcess;
     is_pileup_ended = false;
     dna = new QGraphicsScene;
-    prot = new QGraphicsScene;
+    pr = new QGraphicsScene;
 }
 
 bool Daemon::execute_everything()
@@ -47,5 +47,5 @@ void Daemon::mut_st()
 void Daemon::setup_scenes()
 {
     dna->setSceneRect(0,0,index_size,100);
-    prot->setSceneRect(0,0,index_size,100);
+    pr->setSceneRect(0,0,imsorry_width,68);
 }

@@ -10,7 +10,8 @@ prot_item::prot_item(int _x1, int _x2, int _width, QString _name,QBrush _brush, 
     x2 = _x2;
     width  = _width;
     level = _level;
-    setToolTip(name);
+    QString s1,s2;
+    setToolTip(name+'\n'+ s1.sprintf("%d",x1)+ ".." + s2.sprintf("%d",x2));
 }
 
 void prot_item::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)

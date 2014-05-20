@@ -3,6 +3,7 @@
 #include <QPen>
 #include <QPainter>
 #include <QDebug>
+#include <QPainterPath>
 
 #include <mut_item.h>
 #include <prot_item.h>
@@ -50,4 +51,35 @@ void mut_GraphicsItem::configureProt(QGraphicsScene *s, QString file2, int lengt
         s->addItem(item);
     }
 
+}
+
+void mut_GraphicsItem::configure_histogram(QGraphicsScene *s, int perpix)
+{
+    int num = 0;
+    QPen pen(Qt::black);
+    QBrush brush(Qt::blue);
+    QVector<int> histog;
+    QListIterator<QStringList> i(parsed_one);
+    QPainterPath p,se;
+    while(i.hasNext())
+    {
+        QStringList list = i.next();
+        int a = list[0].toInt();
+        if(a<(num*perpix))
+        {
+            histog[num-1]++;
+        }
+        else
+        {
+            if (num==0)p.moveTo(0, 0);
+            else
+            {
+                p.moveTo(num, 0);
+                p.lineTo(num,histog[num-1]);
+            }
+            num++;
+            histog.push_back(1);
+        }
+    }
+    s->addPath(p,pen,brush);
 }

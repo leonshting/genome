@@ -8,7 +8,8 @@ Mut_item::Mut_item(int _x, QString letter,QBrush _brush, QPen _pen,QGraphicsItem
     pen= _pen;
     le = letter;
     x = _x;
-    setToolTip(letter);
+    QString s;
+    setToolTip(s.sprintf("%d ",x) + letter);
 }
 
 void Mut_item::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
@@ -16,7 +17,7 @@ void Mut_item::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, 
     QRectF rec = boundingRect();
     painter->setBrush(brush);
     painter->setPen(pen);
-    painter->drawEllipse(rec);
+    painter->drawRect(rec);
 }
 
 QRectF Mut_item::boundingRect() const
