@@ -2,13 +2,14 @@
 #include "ui_mainwindow.h"
 #include "prot_item.h"
 
-#include <QByteArray>
-#include <QProgressBar>
-#include <QIcon>
-#include <QScrollBar>
+#include <QByteArray>  /*class provides an array of bytes, is much more convenient than using const char * */
+#include <QProgressBar> /*o give the user an indication of the progress of an operation*/
+#include <QIcon>        /*provides scalable icons in different modes and states*/
+#include <QScrollBar>   /*this widget provides a vertical or horizontal scroll bar*/
 #include <math.h>
 
-MainWindow::MainWindow(QWidget *parent) :
+MainWindow::MainWindow(QWidget *parent) :  /*MainWindow - typical modern main application window, 
+                                            like the main window itself, menu and tool bars, a status bar, etc.*/
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
