@@ -7,6 +7,7 @@
 #include <QIcon>
 #include <QScrollBar>
 #include <math.h>
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
