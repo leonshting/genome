@@ -8,7 +8,8 @@
 #include <mut_item.h>
 #include <prot_item.h>
 
-mut_GraphicsItem::mut_GraphicsItem()
+/*class that controls the rendering*/
+mut_GraphicsItem::mut_GraphicsItem()  
 {
 }
 
@@ -29,7 +30,7 @@ void mut_GraphicsItem::configureItem(QGraphicsScene *s, QString file1)
     }
 }
 
-void mut_GraphicsItem::configureProt(QGraphicsScene *s, QString file2, int length)
+void mut_GraphicsItem::configureProt(QGraphicsScene *s, QString file2, int length) /*reference and mutations*/
 {
     int is=1;
     parsed_two = CSV::parseFromFile(file2,'\t',2);
@@ -53,7 +54,7 @@ void mut_GraphicsItem::configureProt(QGraphicsScene *s, QString file2, int lengt
 
 }
 
-void mut_GraphicsItem::configure_histogram(QGraphicsScene *s, int perpix)
+void mut_GraphicsItem::configure_histogram(QGraphicsScene *s, int perpix)   /*plotnost of mutations*/
 {
     int num = 0;
     QPen pen(Qt::black);
