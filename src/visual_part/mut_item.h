@@ -11,14 +11,14 @@ class Mut_item :public QGraphicsItem
 {
 
 public:
-    explicit Mut_item(int, QString , QBrush, QPen, QGraphicsItem *parent = 0);
-
+    explicit Mut_item(int _x, QString letter, bool non_sy,QBrush _brush, QPen _pen,QString pr_replacement=0,QGraphicsItem *parent=0);
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
     QString le;
     int x;
     QBrush brush;
     QPen pen;
+    bool strange;
 protected:
 signals:
 

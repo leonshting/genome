@@ -13,19 +13,22 @@ mut_GraphicsItem::mut_GraphicsItem()
 {
 }
 
-void mut_GraphicsItem::configureItem(QGraphicsScene *s, QString file1)
+void mut_GraphicsItem::configureItem(QGraphicsScene *s, QString file1, QString file2)
 {
     parsed_one = CSV::parseFromFile(file1,',',0);
+    parsed_three = CSV::parseFromFile(file2,',',0);
     QPen pen(Qt::black);
     QBrush brush(Qt::blue);
     QListIterator<QStringList> i(parsed_one);
+    QListIterator<QStringList> j(parsed_three);
 
     while(i.hasNext())
     {
         QStringList list = i.next();
+        QStringList list2 = j.next();
         int a = list[0].toInt();
         QString b = list[1];
-        Mut_item *item = new Mut_item(a,b,brush,pen);
+        Mut_item *item = new Mut_item(a,b,!list2[3].isEmpty(),brush,pen,(!list2[3].isEmpty())?(list2[2]+"->"+list2[3]):list2[2]);
         s->addItem(item);
     }
 }

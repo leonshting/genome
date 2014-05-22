@@ -1,7 +1,7 @@
 #include "mut_item.h"
 
 
-Mut_item::Mut_item(int _x, QString letter,QBrush _brush, QPen _pen,QGraphicsItem *parent) :/*describes objects for drawing*/
+Mut_item::Mut_item(int _x, QString letter, bool non_sy,QBrush _brush, QPen _pen,QString pr_replacement,QGraphicsItem *parent) :/*describes objects for drawing*/
     QGraphicsItem(parent)
 {
     brush = _brush;
@@ -9,14 +9,25 @@ Mut_item::Mut_item(int _x, QString letter,QBrush _brush, QPen _pen,QGraphicsItem
     le = letter;
     x = _x;
     QString s;
-    setToolTip(s.sprintf("%d ",x) + letter);
+    strange = non_sy;
+    setToolTip(s.sprintf("%d ",x) + letter+ "\n" + pr_replacement);
 }
 
 void Mut_item::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)/*describes function for drawing*/
 {
     QRectF rec = boundingRect();
     painter->setBrush(brush);
-    painter->setPen(pen);
+    if(!strange)
+    {
+        painter->setPen(pen);
+        painter->setBrush(brush);
+    }
+    else
+    {
+        painter->setPen(pen);
+        painter->setBrush(QBrush(QColor(255,102,255)));
+
+    }
     painter->drawRect(rec);
 }
 

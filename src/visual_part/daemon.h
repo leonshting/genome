@@ -15,7 +15,7 @@ public:
     bool execute_everything();
     void update_is_loaded();
     QString bam, fasta, ptt;
-    QProcess *to_pileup, *to_qua;
+    QProcess *to_pileup, *to_qua, *to_anno;
     bool is_pileup_ended;
     int index_size;
     QGraphicsScene *dna;
@@ -27,6 +27,7 @@ private:
 public slots:
     void pileup_st();
     void mut_st();
+    void anno_st();
     void setup_scenes();
 };
 

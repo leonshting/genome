@@ -8,8 +8,7 @@
 #include <QScrollBar>   /*this widget provides a vertical or horizontal scroll bar*/
 #include <math.h>
 
-MainWindow::MainWindow(QWidget *parent) :  /*MainWindow - typical modern main application window, 
-                                            like the main window itself, menu and tool bars, a status bar, etc.*/
+MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
@@ -24,8 +23,9 @@ MainWindow::MainWindow(QWidget *parent) :  /*MainWindow - typical modern main ap
     zoom_a = false;
     z=0;
     QObject::connect(d->to_pileup, SIGNAL(finished(int)), d, SLOT(mut_st()));
+    QObject::connect(d->to_anno,SIGNAL(finished(int)), this, SLOT(push_paint()));
     QObject::connect(d->to_pileup, SIGNAL(readyReadStandardOutput()), this, SLOT(newData_received()));
-    QObject::connect(d->to_qua, SIGNAL(finished(int)), this, SLOT(push_paint()));
+    QObject::connect(d->to_qua, SIGNAL(finished(int)), d, SLOT(anno_st()));
     QObject::connect(ui->graphicsView->horizontalScrollBar(),SIGNAL(valueChanged(int)),this, SLOT(show_place(int)));
 }
 
@@ -89,7 +89,7 @@ void MainWindow::newData_received()
 void MainWindow::push_paint()
 {
     ui->textBrowser->addItem("q_marker is ended, visualization started");
-    item->configureItem(d->dna, "as1.qualities");
+    item->configureItem(d->dna, "as1.qualities", "annotation.txt");
     item->configureProt(d->dna, d->ptt, d->index_size);
     item->configure_histogram(d->pr,d->index_size/(ui->graphicsView_2->width()));
 
