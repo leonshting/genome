@@ -1,3 +1,5 @@
+/*like a makefile-collector*/
+
 #-------------------------------------------------
 #
 # Project created by QtCreator 2014-05-16T00:20:05
