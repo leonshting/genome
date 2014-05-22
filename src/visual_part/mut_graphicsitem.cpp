@@ -8,7 +8,8 @@
 #include <mut_item.h>
 #include <prot_item.h>
 
-mut_GraphicsItem::mut_GraphicsItem()
+/*class that controls the rendering*/
+mut_GraphicsItem::mut_GraphicsItem()  
 {
 }
 
@@ -29,13 +30,13 @@ void mut_GraphicsItem::configureItem(QGraphicsScene *s, QString file1)
     }
 }
 
-void mut_GraphicsItem::configureProt(QGraphicsScene *s, QString file2, int length)
+void mut_GraphicsItem::configureProt(QGraphicsScene *s, QString file2, int length) /*reference and mutations*/
 {
     int is=1;
     parsed_two = CSV::parseFromFile(file2,'\t',2);
-    QPen pen_mid(Qt::green);
-    QPen pen_prot(Qt::red);
-    QBrush brush(Qt::blue);
+    QPen pen_mid(Qt::green);   /*obvodka poloski*/
+    QPen pen_prot(Qt::red);     /*obvodka poloski*/
+    QBrush brush(Qt::blue);     /*zapolnenie poloski*/
     prot_item *item2 = new prot_item(0,length,5,0,brush,pen_mid,0);
     s->addItem(item2);
     QListIterator<QStringList> i(parsed_two);
@@ -53,7 +54,7 @@ void mut_GraphicsItem::configureProt(QGraphicsScene *s, QString file2, int lengt
 
 }
 
-void mut_GraphicsItem::configure_histogram(QGraphicsScene *s, int perpix)
+void mut_GraphicsItem::configure_histogram(QGraphicsScene *s, int perpix)   /*plotnost of mutations*/
 {
     int num = 0;
     QPen pen(Qt::black);

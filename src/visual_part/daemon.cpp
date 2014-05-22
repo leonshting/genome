@@ -1,6 +1,6 @@
 #include "daemon.h"
-#include <QProcess>
-#include <QObject>
+#include <QProcess> /*used to start external programs and to communicate with them*/
+#include <QObject>   /*to use signals,slots and other meta-object features*/
 
 
 Daemon::Daemon()

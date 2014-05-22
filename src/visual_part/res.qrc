@@ -1,3 +1,4 @@
+/* the indexer of resources */
 <RCC>
     <qresource prefix="/images">
         <file>LIG.png</file>
