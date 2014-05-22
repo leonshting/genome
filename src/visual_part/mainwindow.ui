@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
+ <class>MainWindow</class>   /*the whole window*/
  <widget class="QMainWindow" name="MainWindow">
   <property name="geometry">
    <rect>
@@ -25,7 +25,7 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralWidget">
+  <widget class="QWidget" name="centralWidget"> 
    <widget class="QGraphicsView" name="graphicsView">
     <property name="geometry">
      <rect>
@@ -42,7 +42,7 @@
      </sizepolicy>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="pushButton"> 
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -55,7 +55,7 @@
      <string>Start</string>
     </property>
    </widget>
-   <widget class="QProgressBar" name="progressBar">
+   <widget class="QProgressBar" name="progressBar">   /*the whole window*/
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -68,7 +68,7 @@
      <number>0</number>
     </property>
    </widget>
-   <widget class="QListWidget" name="textBrowser">
+   <widget class="QListWidget" name="textBrowser">   /*ref and mutations*/
     <property name="geometry">
      <rect>
       <x>670</x>
@@ -78,7 +78,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QGraphicsView" name="graphicsView_2">
+   <widget class="QGraphicsView" name="graphicsView_2">   /*mutations pics*/
     <property name="geometry">
      <rect>
       <x>180</x>
@@ -88,7 +88,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="pushButton_2">    /* + buttom*/
     <property name="enabled">
      <bool>false</bool>
     </property>
@@ -104,8 +104,7 @@
      <string>+</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
-    <property name="geometry">
+   <widget class="QPushButton" name="pushButton_3">    /*- buttom*/
      <rect>
       <x>10</x>
       <y>130</y>
@@ -118,7 +117,7 @@
     </property>
    </widget>
   </widget>
-  <widget class="QMenuBar" name="menuBar">
+  <widget class="QMenuBar" name="menuBar">     /*   */
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -127,11 +126,11 @@
      <height>20</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuFile">
+   <widget class="QMenu" name="menuFile">         /*file->load to put files*/
     <property name="title">
      <string>File</string>
     </property>
-    <widget class="QMenu" name="menuLoad">
+    <widget class="QMenu" name="menuLoad">        /*file->load to put files*/
      <property name="title">
       <string>Load</string>
      </property>
