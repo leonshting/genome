@@ -3,6 +3,8 @@ cmake_minimum_required( VERSION 2.6 )
 # Устанавливаем значение переменной BIN
 set( BIN1 pileup )
 set( BIN2 quality_marker )
+set( BIN3 anno )
+
 # Имя проекта у нас соответствует имени программы.
 project( "genome_analysis" )
 
@@ -13,6 +15,7 @@ set( LIB_ROOT ${CMAKE_SOURCE_DIR}/lib/ )
 
 aux_source_directory( ${SOURCE_ROOT}/${BIN1}/ SOURCES1 )
 aux_source_directory( ${SOURCE_ROOT}/${BIN2}/ SOURCES2 )
+aux_source_directory( ${SOURCE_ROOT}/${BIN3}/ SOURCES3 )
 
 # Указываем пути, где искать заголовочники, дополнительно к стандартным путям.
 include_directories( ${INCLUDE_ROOT} )
@@ -32,8 +35,10 @@ set( CMAKE_CXX_FLAGS "-O0 -Wall -pedantic -std=c++0x" )
 
 add_executable( ${BIN1} ${SOURCES1} )
 add_executable( ${BIN2} ${SOURCES2} )
+add_executable( ${BIN3} ${SOURCES3} )
+
 
 # Компонуем собранную программу с необходимыми динамическими библиотеками.
 target_link_libraries( ${BIN1} ${REQUIRED_LIBRARIES} )
 target_link_libraries( ${BIN2} )
-
+target_link_libraries( ${BIN3} )
