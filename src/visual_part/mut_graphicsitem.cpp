@@ -33,9 +33,9 @@ void mut_GraphicsItem::configureProt(QGraphicsScene *s, QString file2, int lengt
 {
     int is=1;
     parsed_two = CSV::parseFromFile(file2,'\t',2);
-    QPen pen_mid(Qt::green);
-    QPen pen_prot(Qt::red);
-    QBrush brush(Qt::blue);
+    QPen pen_mid(Qt::green);   /*obvodka poloski*/
+    QPen pen_prot(Qt::red);     /*obvodka poloski*/
+    QBrush brush(Qt::blue);     /*zapolnenie poloski*/
     prot_item *item2 = new prot_item(0,length,5,0,brush,pen_mid,0);
     s->addItem(item2);
     QListIterator<QStringList> i(parsed_two);
