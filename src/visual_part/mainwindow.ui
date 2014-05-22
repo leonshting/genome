@@ -1,3 +1,5 @@
+/*direct description of the form window*/
+
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>MainWindow</class>   /*the whole window*/
@@ -42,7 +44,7 @@
      </sizepolicy>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton"> 
+   <widget class="QPushButton" name="pushButton"> /*mutations*/
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -55,7 +57,7 @@
      <string>Start</string>
     </property>
    </widget>
-   <widget class="QProgressBar" name="progressBar">   /*the whole window*/
+   <widget class="QProgressBar" name="progressBar">   /*basic strip*/
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -117,7 +119,7 @@
     </property>
    </widget>
   </widget>
-  <widget class="QMenuBar" name="menuBar">     /*   */
+  <widget class="QMenuBar" name="menuBar">     /* menu on the top of window  */
    <property name="geometry">
     <rect>
      <x>0</x>
