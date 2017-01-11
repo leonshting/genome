@@ -1,3 +1,3 @@
 # genome
 
-As i can now remember, algorithms is SNP or snip calling.
+As i can now remember, implemented algorithm is SNP or snip calling.
